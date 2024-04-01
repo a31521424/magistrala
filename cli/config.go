@@ -188,6 +188,10 @@ func ParseConfig(sdkConf mgxsdk.Config) (mgxsdk.Config, error) {
 		sdkConf.CertsURL = config.Remotes.CertsURL
 	}
 
+	if sdkConf.DomainsURL == "" && config.Remotes.DomainsURL != "" {
+		sdkConf.DomainsURL = config.Remotes.DomainsURL
+	}
+
 	sdkConf.TLSVerification = config.Remotes.TLSVerification || sdkConf.TLSVerification
 
 	return sdkConf, nil
