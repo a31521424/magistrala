@@ -17,7 +17,7 @@ var cmdThings = []cobra.Command{
 		Short: "Create thing",
 		Long: "Creates new thing with provided name and metadata\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things create '{\"name\":\"new thing\", \"metadata\":{\"key\": \"value\"}}' $USERTOKEN\n",
+			"\tcli things create '{\"name\":\"new thing\", \"metadata\":{\"key\": \"value\"}}' $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -44,9 +44,9 @@ var cmdThings = []cobra.Command{
 		Short: "Get things",
 		Long: "Get all things or get thing by id. Things can be filtered by name or metadata\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things get all $USERTOKEN - lists all things\n" +
-			"\tmagistrala-cli things get all $USERTOKEN --offset=10 --limit=10 - lists all things with offset and limit\n" +
-			"\tmagistrala-cli things get <thing_id> $USERTOKEN - shows thing with provided <thing_id>\n",
+			"\tcli things get all $USERTOKEN - lists all things\n" +
+			"\tcli things get all $USERTOKEN --offset=10 --limit=10 - lists all things with offset and limit\n" +
+			"\tcli things get <thing_id> $USERTOKEN - shows thing with provided <thing_id>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -86,7 +86,7 @@ var cmdThings = []cobra.Command{
 		Short: "Delete thing",
 		Long: "Delete thing by id\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things delete <thing_id> $USERTOKEN - delete thing with <thing_id>\n",
+			"\tcli things delete <thing_id> $USERTOKEN - delete thing with <thing_id>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -104,7 +104,7 @@ var cmdThings = []cobra.Command{
 		Short: "Identify thing",
 		Long: "Validates thing's key and returns its ID\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things identify <thing_key>\n",
+			"\tcli things identify <thing_key>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 1 {
 				logUsage(cmd.Use)
@@ -125,9 +125,9 @@ var cmdThings = []cobra.Command{
 		Short: "Update thing",
 		Long: "Updates thing with provided id, name and metadata, or updates thing tags, secret\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things update <thing_id> '{\"name\":\"new name\", \"metadata\":{\"key\": \"value\"}}' $USERTOKEN\n" +
-			"\tmagistrala-cli things update tags <thing_id> '{\"tag1\":\"value1\", \"tag2\":\"value2\"}' $USERTOKEN\n" +
-			"\tmagistrala-cli things update secret <thing_id> <newsecret> $USERTOKEN\n",
+			"\tcli things update <thing_id> '{\"name\":\"new name\", \"metadata\":{\"key\": \"value\"}}' $USERTOKEN\n" +
+			"\tcli things update tags <thing_id> '{\"tag1\":\"value1\", \"tag2\":\"value2\"}' $USERTOKEN\n" +
+			"\tcli things update secret <thing_id> <newsecret> $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 4 && len(args) != 3 {
 				logUsage(cmd.Use)
@@ -181,7 +181,7 @@ var cmdThings = []cobra.Command{
 		Short: "Change thing status to enabled",
 		Long: "Change thing status to enabled\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things enable <thing_id> $USERTOKEN\n",
+			"\tcli things enable <thing_id> $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -202,7 +202,7 @@ var cmdThings = []cobra.Command{
 		Short: "Change thing status to disabled",
 		Long: "Change thing status to disabled\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things disable <thing_id> $USERTOKEN\n",
+			"\tcli things disable <thing_id> $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -223,7 +223,7 @@ var cmdThings = []cobra.Command{
 		Short: "Share thing with a user",
 		Long: "Share thing with a user\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things share <thing_id> <user_id> <relation> $USERTOKEN\n",
+			"\tcli things share <thing_id> <user_id> <relation> $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 4 {
 				logUsage(cmd.Use)
@@ -247,7 +247,7 @@ var cmdThings = []cobra.Command{
 		Short: "Unshare thing with a user",
 		Long: "Unshare thing with a user\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things share  <thing_id> <user_id> <relation> $USERTOKEN\n",
+			"\tcli things share  <thing_id> <user_id> <relation> $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 4 {
 				logUsage(cmd.Use)
@@ -271,7 +271,7 @@ var cmdThings = []cobra.Command{
 		Short: "Connect thing",
 		Long: "Connect thing to the channel\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things connect <thing_id> <channel_id> $USERTOKEN\n",
+			"\tcli things connect <thing_id> <channel_id> $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 3 {
 				logUsage(cmd.Use)
@@ -295,7 +295,7 @@ var cmdThings = []cobra.Command{
 		Short: "Disconnect thing",
 		Long: "Disconnect thing to the channel\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things disconnect <thing_id> <channel_id> $USERTOKEN\n",
+			"\tcli things disconnect <thing_id> <channel_id> $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 3 {
 				logUsage(cmd.Use)
@@ -319,7 +319,7 @@ var cmdThings = []cobra.Command{
 		Short: "Connected list",
 		Long: "List of Channels connected to Thing\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli connections <thing_id> $USERTOKEN\n",
+			"\tcli connections <thing_id> $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -343,7 +343,7 @@ var cmdThings = []cobra.Command{
 		Short: "List users",
 		Long: "List users of a thing\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli things users <thing_id> $USERTOKEN\n",
+			"\tcli things users <thing_id> $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)

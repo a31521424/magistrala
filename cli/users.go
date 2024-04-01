@@ -17,7 +17,7 @@ var cmdUsers = []cobra.Command{
 		Short: "Create user",
 		Long: "Create user with provided name, username and password. Token in optional\n" +
 			"For example:\n" +
-			"\tmagistrala-cli users create user user@example.com 12345678 $USER_AUTH_TOKEN\n",
+			"\tcli users create user user@example.com 12345678 $USER_AUTH_TOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) < 3 || len(args) > 4 {
 				logUsage(cmd.Use)
@@ -49,9 +49,9 @@ var cmdUsers = []cobra.Command{
 		Short: "Get users",
 		Long: "Get all users or get user by id. Users can be filtered by name or metadata or status\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users get all <user_auth_token> - lists all users\n" +
-			"\tmagistrala-cli users get all <user_auth_token> --offset <offset> --limit <limit> - lists all users with provided offset and limit\n" +
-			"\tmagistrala-cli users get <user_id> <user_auth_token> - shows user with provided <user_id>\n",
+			"\tcli users get all <user_auth_token> - lists all users\n" +
+			"\tcli users get all <user_auth_token> --offset <offset> --limit <limit> - lists all users with provided offset and limit\n" +
+			"\tcli users get <user_id> <user_auth_token> - shows user with provided <user_id>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -92,7 +92,7 @@ var cmdUsers = []cobra.Command{
 		Short: "Get token",
 		Long: "Generate new token from username and password\n" +
 			"For example:\n" +
-			"\tmagistrala-cli users token user@example.com 12345678\n",
+			"\tcli users token user@example.com 12345678\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 3 && len(args) != 2 {
 				logUsage(cmd.Use)
@@ -121,7 +121,7 @@ var cmdUsers = []cobra.Command{
 		Short: "Get token",
 		Long: "Generate new token from refresh token\n" +
 			"For example:\n" +
-			"\tmagistrala-cli users refreshtoken <refresh_token>\n",
+			"\tcli users refreshtoken <refresh_token>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 && len(args) != 1 {
 				logUsage(cmd.Use)
@@ -146,9 +146,9 @@ var cmdUsers = []cobra.Command{
 		Short: "Update user",
 		Long: "Updates either user name and metadata or user tags or user identity\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users update <user_id> '{\"name\":\"new name\", \"metadata\":{\"key\": \"value\"}}' $USERTOKEN - updates user name and metadata\n" +
-			"\tmagistrala-cli users update tags <user_id> '[\"tag1\", \"tag2\"]' $USERTOKEN - updates user tags\n" +
-			"\tmagistrala-cli users update identity <user_id> newidentity@example.com $USERTOKEN - updates user identity\n",
+			"\tcli users update <user_id> '{\"name\":\"new name\", \"metadata\":{\"key\": \"value\"}}' $USERTOKEN - updates user name and metadata\n" +
+			"\tcli users update tags <user_id> '[\"tag1\", \"tag2\"]' $USERTOKEN - updates user tags\n" +
+			"\tcli users update identity <user_id> newidentity@example.com $USERTOKEN - updates user identity\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 4 && len(args) != 3 {
 				logUsage(cmd.Use)
@@ -219,7 +219,7 @@ var cmdUsers = []cobra.Command{
 		Short: "Get user profile",
 		Long: "Get user profile\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users profile $USERTOKEN\n",
+			"\tcli users profile $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 1 {
 				logUsage(cmd.Use)
@@ -240,7 +240,7 @@ var cmdUsers = []cobra.Command{
 		Short: "Send reset password request",
 		Long: "Send reset password request\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users resetpasswordrequest example@mail.com\n",
+			"\tcli users resetpasswordrequest example@mail.com\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 1 {
 				logUsage(cmd.Use)
@@ -260,7 +260,7 @@ var cmdUsers = []cobra.Command{
 		Short: "Reset password",
 		Long: "Reset password\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users resetpassword 12345678 12345678 $REQUESTTOKEN\n",
+			"\tcli users resetpassword 12345678 12345678 $REQUESTTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 3 {
 				logUsage(cmd.Use)
@@ -280,7 +280,7 @@ var cmdUsers = []cobra.Command{
 		Short: "Update password",
 		Long: "Update password\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users password old_password new_password $USERTOKEN\n",
+			"\tcli users password old_password new_password $USERTOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 3 {
 				logUsage(cmd.Use)
@@ -301,7 +301,7 @@ var cmdUsers = []cobra.Command{
 		Short: "Change user status to enabled",
 		Long: "Change user status to enabled\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users enable <user_id> <user_auth_token>\n",
+			"\tcli users enable <user_id> <user_auth_token>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -322,7 +322,7 @@ var cmdUsers = []cobra.Command{
 		Short: "Change user status to disabled",
 		Long: "Change user status to disabled\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users disable <user_id> <user_auth_token>\n",
+			"\tcli users disable <user_id> <user_auth_token>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -344,7 +344,7 @@ var cmdUsers = []cobra.Command{
 		Short: "List channels",
 		Long: "List channels of user\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users channels <user_id> <user_auth_token>\n",
+			"\tcli users channels <user_id> <user_auth_token>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -371,7 +371,7 @@ var cmdUsers = []cobra.Command{
 		Short: "List things",
 		Long: "List things of user\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users things <user_id> <user_auth_token>\n",
+			"\tcli users things <user_id> <user_auth_token>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -398,7 +398,7 @@ var cmdUsers = []cobra.Command{
 		Short: "List domains",
 		Long: "List user's domains\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users domains <user_id> <user_auth_token>\n",
+			"\tcli users domains <user_id> <user_auth_token>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -425,7 +425,7 @@ var cmdUsers = []cobra.Command{
 		Short: "List groups",
 		Long: "List groups of user\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli users groups <user_id> <user_auth_token>\n",
+			"\tcli users groups <user_id> <user_auth_token>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)

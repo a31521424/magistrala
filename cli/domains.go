@@ -16,7 +16,7 @@ var cmdDomains = []cobra.Command{
 		Short: "Create Domain",
 		Long: "Create Domain with provided name and alias. \n" +
 			"For example:\n" +
-			"\tmagistrala-cli domains create domain_1 domain_1_alias $TOKEN\n",
+			"\tcli domains create domain_1 domain_1_alias $TOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 3 {
 				logUsage(cmd.Use)
@@ -110,7 +110,7 @@ var cmdDomains = []cobra.Command{
 		Short: "Update domains",
 		Long: "Updates domains name, alias and metadata \n" +
 			"Usage:\n" +
-			"\tmagistrala-cli domains update <domain_id> '{\"name\":\"new name\", \"alias\":\"new_alias\", \"metadata\":{\"key\": \"value\"}}' $TOKEN \n",
+			"\tcli domains update <domain_id> '{\"name\":\"new name\", \"alias\":\"new_alias\", \"metadata\":{\"key\": \"value\"}}' $TOKEN \n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 4 && len(args) != 3 {
 				logUsage(cmd.Use)
@@ -138,7 +138,7 @@ var cmdDomains = []cobra.Command{
 		Short: "Change domain status to enabled",
 		Long: "Change domain status to enabled\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli domains enable <domain_id> <token>\n",
+			"\tcli domains enable <domain_id> <token>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -157,7 +157,7 @@ var cmdDomains = []cobra.Command{
 		Short: "Change domain status to disabled",
 		Long: "Change domain status to disabled\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli domains disable <domain_id> <token>\n",
+			"\tcli domains disable <domain_id> <token>\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
@@ -179,7 +179,7 @@ var domainAssignCmds = []cobra.Command{
 		Short: "Assign users",
 		Long: "Assign users to a domain\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli groups assign users <relation> '[\"<user_id_1>\", \"<user_id_2>\"]' <domain_id> $TOKEN\n",
+			"\tcli groups assign users <relation> '[\"<user_id_1>\", \"<user_id_2>\"]' <domain_id> $TOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 4 {
 				logUsage(cmd.Use)
@@ -205,7 +205,7 @@ var domainUnassignCmds = []cobra.Command{
 		Short: "Unassign users",
 		Long: "Unassign users from a domain\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli groups unassign users <relation> '[\"<user_id_1>\", \"<user_id_2>\"]' <domain_id> $TOKEN\n",
+			"\tcli groups unassign users <relation> '[\"<user_id_1>\", \"<user_id_2>\"]' <domain_id> $TOKEN\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 4 {
 				logUsage(cmd.Use)

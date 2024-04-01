@@ -32,7 +32,7 @@ var cmdMessages = []cobra.Command{
 		Short: "Read messages",
 		Long: "Reads all channel messages\n" +
 			"Usage:\n" +
-			"\tmagistrala-cli messages read <channel_id.subtopic> <user_token> --offset <offset> --limit <limit> - lists all messages with provided offset and limit\n",
+			"\tcli messages read <channel_id.subtopic> <user_token> --offset <offset> --limit <limit> - lists all messages with provided offset and limit\n",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(args) != 2 {
 				logUsage(cmd.Use)
